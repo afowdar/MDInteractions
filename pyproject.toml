@@ -1,0 +1,43 @@
+[build-system]
+requires = [
+    "setuptools>=61.0", 
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MDInteractions"
+version = "1.0.0"
+description = "A Python package for the distance-based analysis of intra- and inter-protein interactions."
+authors = [
+    { name = "Anjani Fowdar", email = "anjanifowdar@gmail.com" }
+    { name = "Darren P Martin" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "MDAnalysis",
+    "numpy",
+    "pandas"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Bioinformatics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/afowdar/MDInteractions"
+"Source" = "https://github.com/afowdar/MDInteractions"
+
+[project.scripts]
+protein_interactions = "MDInteractions.cli:main"
+mean_distance = "MDInteractions.mean_cli:main"

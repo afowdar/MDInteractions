@@ -1,0 +1,7 @@
+Group1_resid,Group2_resid,Average_Distance,Group1_resname,Group2_resname,Group1_atom,Group2_atom
+5,6,5.748441,LEU,LEU,CB,CB
+5,7,7.1149607,LEU,GLY,CA,CA
+5,8,11.616871,LEU,ALA,CB,CB
+6,7,3.8313363,LEU,GLY,CA,CA
+6,8,8.645117,LEU,ALA,CB,CB
+7,8,3.8569427,GLY,ALA,CA,CA

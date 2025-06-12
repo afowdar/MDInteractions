@@ -1,0 +1,17 @@
+# Include all Python files and text files globally
+global-include *.py *.txt
+
+# Include all files in the MDInteractions folder recursively
+graft MDInteractions
+
+# Include documentation and metadata files
+include README.md
+include LICENSE.txt
+include pyproject.toml
+
+# Exclude PNG files globally (to keep images out of package)
+global-exclude *.png
+
+# Exclude bytecode and cache files globally
+global-exclude __pycache__/
+global-exclude *.py[cod]

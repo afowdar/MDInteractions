@@ -1,0 +1,4 @@
+Group1_resid,Group2_resid,Group1_resname,Group2_resname,Group1_atom,Group2_atom
+5,6,LEU,LEU,CB,CB
+6,7,LEU,GLY,CA,CA
+7,8,GLY,ALA,CA,CA
