@@ -240,7 +240,7 @@ mean_distance \
 - By default, the output file is saved in the same directory as the gro_file, unless an alternative location or file path is specified via the --output_file command-line flag or the output_file="<path>" keyword argument.
 
 ## Visualising
-![Example output visualization of MDInteractions showing interaction pairs over time](https://github.com/afowdar/MDInteractions/pub.png)
+![Example output visualization of MDInteractions showing interaction pairs over time](pub.png)
 
 
 ## License
