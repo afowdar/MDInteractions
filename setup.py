@@ -36,7 +36,7 @@ setup(
         "Intended Audience :: Science/Research",
         "Intended Audience :: Developers",
         "Topic :: Scientific/Engineering :: Chemistry",
-        "Topic :: Scientific/Engineering :: Bioinformatics",
+        "Topic :: Scientific/Engineering :: Bio-informatics",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
 )
