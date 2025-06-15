@@ -1,0 +1,37 @@
+# Specify the SLURM directives in the script
+
+# add the modules
+module purge
+module add python/3.10.16
+module add mdanalysis/2.7.0
+module add MDInteractions
+
+#For mean_distance of gp 120
+
+mean_interactions --gro_file "md.gro"  --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 8000 --end_frame 9000  --group_ID 10  
+--group1_atom_name CB --group2_atom_name CB --residue_specific_atoms '[["GLY", "CA"]]' --give_res_name=True --give_atom_name=True
+
+#For mean_distance of gp 41
+
+mean_interactions --gro_file "md.gro"  --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 8000 --end_frame 9000  --group_ID 11  
+--group1_atom_name CB --group2_atom_name CB --residue_specific_atoms '[["GLY", "CA"]]' --give_res_name=True --give_atom_name=True
+
+#For mean_distance of HIV-1 envelope
+
+mean_interactions --gro_file "md.gro"  --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 8000 --end_frame 9000  --group1_ID 10 --group2_ID 11  
+--group1_atom_name CB --group2_atom_name CB --residue_specific_atoms '[["GLY", "CA"]]' --give_res_name=True --give_atom_name=True
+
+#For protein_interactions of gp 120
+
+protein_interactions --gro_file "md.gro"  --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 8000 --end_frame 9000  --group_ID 10  
+--group1_atom_name CB --group2_atom_name CB --cutoff 7.0 --residue_specific_atoms '[["GLY", "CA"]]' --give_res_name=True --give_atom_name=True
+
+#For protein_interactions of gp 120
+
+protein_interactions --gro_file "md.gro"  --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 8000 --end_frame 9000  --group_ID 11  
+--group1_atom_name CB --group2_atom_name CB --cutoff 7.0 --residue_specific_atoms '[["GLY", "CA"]]' --give_res_name=True --give_atom_name=True
+
+#For protein_interactions of HIV-1 envelope
+
+protein_interactions --gro_file "md.gro"  --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 8000 --end_frame 9000  --group1_ID 10  --group2_ID 11  
+--group1_atom_name CB --group2_atom_name CB --cutoff 15.0 --residue_specific_atoms '[["GLY", "CA"]]' --give_res_name=True --give_atom_name=True
