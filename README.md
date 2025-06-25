@@ -252,7 +252,7 @@ This project is licensed under the [MIT License](LICENSE.txt).
 
 If you use `MDInteractions` in your research, please cite it as:
 
-> Fowdar, A and Martin, DP. *MDInteractions: A python package for the distance-based analysis of intra- and inter-protein interactions*. GitHub, 2025. https://github.com/afowdar/MDInteractions
+> Fowdar, A and Martin, DP. *MDInteractions: A python package for the distance-based analysis of intra- and inter-protein interactions*. Research Square, 2025. https://dx.doi.org/10.21203/rs.3.rs-6957895/v1
 
 Or use the following BibTeX entry:
 
@@ -260,8 +260,10 @@ Or use the following BibTeX entry:
 @misc{mdinteractions2025,
   author       = {Anjani Fowdar and Darren P Martin},
   title        = {MDInteractions: A python package for the distance-based analysis of intra- and inter-protein interactions},
+  journal      = {Research Square},
   year         = {2025},
-  howpublished = {\url{https://github.com/afowdar/MDInteractions}},
+  doi          = {10.21203/rs.3.rs-6957895/v1},
+  note         = {Preprint}
 }
 ```
 
