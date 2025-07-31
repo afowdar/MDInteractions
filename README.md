@@ -130,7 +130,7 @@ protein_interactions \
   --group2_atom_name CB \
 # Distance cutoff in Ångströms
   --cutoff 7 \
-# JSON list of residue-specific atom tuples, e.g. '[ ["GLY", "CA", "CB"], ["ALA", "CB"] ]'
+# JSON list of residue-specific atom tuples, e.g. '[ ["GLY", "CA"], ["ALA", "CB"] ]'
   --residue_specific_atoms '[["GLY", "CA"]]' \
 # Include residue names in output
   --give_res_name=True \
