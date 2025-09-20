@@ -10,6 +10,7 @@ To install the package, run:
 ```
 pip install MDInteractions
 ```
+Requires: Python >=3.10
 
 ## Modules
 
