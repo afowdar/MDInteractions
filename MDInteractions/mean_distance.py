@@ -236,14 +236,16 @@ class MeanDistanceAnalyzer:
             for key, dists in pairwise.items():
                 combined_counts[key].extend(dists)
 
-        x, y, x_name, y_name, x_atoms, y_atoms, avg_dist = [], [], [], [], [], [], []
+        x, y, x_name, y_name, x_atoms, y_atoms, avg_dist, std_dist = [], [], [], [], [], [], [], []
 
         for key, distances in combined_counts.items():
             (resid1, resname1), (resid2, resname2), atom1_name, atom2_name = key
             avg_distance = np.mean(distances)
+            std_distance = np.std(distances)
             x.append(resid1)
             y.append(resid2)
             avg_dist.append(avg_distance)
+            std_dist.append(std_distance)
 
             if self.give_res_name:
                 x_name.append(resname1)
@@ -256,7 +258,8 @@ class MeanDistanceAnalyzer:
         data = {
             'Group1_resid': x,
             'Group2_resid': y,
-            'Average_Distance': avg_dist
+            'Average_Distance': avg_dist,
+            'Standard_Deviation': std_dist
         }
         if self.give_res_name:
             data['Group1_resname'] = x_name
