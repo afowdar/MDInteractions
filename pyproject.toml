@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "MDInteractions"
-version = "1.0.0"
+version = "1.1.0"
 description = "A Python package for the distance-based analysis of intra- and inter-protein interactions."
 authors = [
     { name = "Anjani Fowdar", email = "anjanifowdar@gmail.com" }
