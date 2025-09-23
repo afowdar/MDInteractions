@@ -33,7 +33,7 @@ def analyzer():
         give_res_name=True,
         give_atom_name=True,
         residue_specific_atoms=residue_atoms,
-        output_file="test_output.csv"
+        output_file="average_distance.csv"
     )
 
 # test function that uses the analyzer fixture
@@ -52,7 +52,7 @@ def test_mean_distance_analysis(analyzer):
         'Group1_resid', 'Group2_resid',
         'Group1_resname', 'Group2_resname',
         'Group1_atom', 'Group2_atom',
-        'Average_Distance'
+        'Average_Distance', 'Standard_Deviation'    
     }
 
     # Check that all expected columns are present in the DataFrame
@@ -60,22 +60,22 @@ def test_mean_distance_analysis(analyzer):
 
     # Define expected distance results manually for comparison
     manual_expected = {
-    (1, 5, 'CB', 'CB', 'MET', 'LEU'): 12.2,
-    (1, 6, 'CB', 'CB', 'MET', 'LEU'): 16.2,
-    (1, 7, 'CA', 'CA', 'MET', 'GLY'): 18.7,
-    (1, 8, 'CB', 'CB', 'MET', 'ALA'): 23.3,
-    (2, 5, 'CB', 'CB', 'ARG', 'LEU'): 11.2,
-    (2, 6, 'CB', 'CB', 'ARG', 'LEU'): 14.2,
-    (2, 7, 'CA', 'CA', 'ARG', 'GLY'): 16.9,
-    (2, 8, 'CB', 'CB', 'ARG', 'ALA'): 22.3,
-    (3, 5, 'CB', 'CB', 'ILE', 'LEU'): 6.3,
-    (3, 6, 'CB', 'CB', 'ILE', 'LEU'): 10.0,
-    (3, 7, 'CA', 'CA', 'ILE', 'GLY'): 13.1,
-    (3, 8, 'CB', 'CB', 'ILE', 'ALA'): 17.4,
-    (4, 5, 'CB', 'CB', 'ILE', 'LEU'): 5.8,
-    (4, 6, 'CB', 'CB', 'ILE', 'LEU'): 6.5,
-    (4, 7, 'CA', 'CA', 'ILE', 'GLY'): 10.3,
-    (4, 8, 'CB', 'CB', 'ILE', 'ALA'): 14.8,
+    (1, 5, 'CB', 'CB', 'MET', 'LEU'): (12.2, 0.5119),
+    (1, 6, 'CB', 'CB', 'MET', 'LEU'): (16.2, 0.5927),
+    (1, 7, 'CA', 'CA', 'MET', 'GLY'): (18.7, 0.2362),
+    (1, 8, 'CB', 'CB', 'MET', 'ALA'): (23.3, 0.4639),
+    (2, 5, 'CB', 'CB', 'ARG', 'LEU'): (11.2, 0.4860),
+    (2, 6, 'CB', 'CB', 'ARG', 'LEU'): (14.2, 0.3562),
+    (2, 7, 'CA', 'CA', 'ARG', 'GLY'): (16.9, 0.3130),
+    (2, 8, 'CB', 'CB', 'ARG', 'ALA'): (22.3, 0.3711),
+    (3, 5, 'CB', 'CB', 'ILE', 'LEU'): (6.3, 0.2852),
+    (3, 6, 'CB', 'CB', 'ILE', 'LEU'): (10.0, 0.1044),
+    (3, 7, 'CA', 'CA', 'ILE', 'GLY'): (13.1, 0.3231),
+    (3, 8, 'CB', 'CB', 'ILE', 'ALA'): (17.4, 0.2750),
+    (4, 5, 'CB', 'CB', 'ILE', 'LEU'): (5.8, 0.0708),
+    (4, 6, 'CB', 'CB', 'ILE', 'LEU'): (6.5, 0.0960),
+    (4, 7, 'CA', 'CA', 'ILE', 'GLY'): (10.3, 0.1295),
+    (4, 8, 'CB', 'CB', 'ILE', 'ALA'): (14.8, 0.1119)
     }
 
     # Convert DataFrame to dict for lookup
@@ -86,17 +86,23 @@ def test_mean_distance_analysis(analyzer):
             row['Group1_atom'], row['Group2_atom'],
             row['Group1_resname'], row['Group2_resname']
         )
-        result_dict[key] = row['Average_Distance']
+        result_dict[key] = {
+        'Average_Distance': row['Average_Distance'],
+        'Standard_Deviation': row['Standard_Deviation']
+    } #added
 
     # Loop through all manually expected values and compare them with actual results
-    for key, expected_dist in manual_expected.items():
+    for key, (expected_dist, expected_std) in manual_expected.items():
         assert key in result_dict, f"Missing interaction {key} in output."
-        actual = result_dict[key]
+        actual_dist = result_dict[key]['Average_Distance']
+        actual_std = result_dict[key]['Standard_Deviation']
         # Allow a small tolerance in distance comparisons due to floating-point calculations
-        assert abs(actual - expected_dist) < 0.5, (
-            f"Mismatch for {key}: expected {expected_dist}, got {actual:.2f}"
+        assert abs(actual_dist - expected_dist) < 0.5, (
+            f"Mismatch for {key}: expected distance {expected_dist}, got {actual_dist:.2f}"
         )
-
+        assert abs(actual_std - expected_std) < 0.5, (
+            f"Mismatch for {key}: expected std {expected_std}, got {actual_std:.2f}"
+        )
     # Optional cleanup
     output_path.unlink()
 
