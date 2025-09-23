@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="MDInteractions",
-    version="1.0.0",
+    version="1.1.0",
     packages=find_packages(),
     install_requires=[
         "MDAnalysis",
