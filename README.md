@@ -88,7 +88,7 @@ intra_meandistance.analyze()                # Compute average distances
 
 ```python
 # Inter-protein mean distance: Average distance between selected atoms across two groups
-from MDInteractions import mean_istance
+from MDInteractions import mean_distance
 
 inter_meandistance = mean_distance(
     gro_file="md.gro",                    
