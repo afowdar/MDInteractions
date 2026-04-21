@@ -240,10 +240,6 @@ mean_distance \
 - The `residue_specific_atoms` parameter should be provided as a **Python list of tuples** (e.g., `[("GLY", "CA"), ("ALA", "CB")]`) when using the Python API, and as a **JSON-formatted string** (e.g., `'[["GLY", "CA"], ["ALA", "CB"]]'`) when using the command-line interface.
 - By default, the output file is saved in the same directory as the gro_file, unless an alternative location or file path is specified via the --output_file command-line flag or the output_file="<path>" keyword argument.
 
-## Visualising
-![Example output visualization of MDInteractions showing interaction pairs over time](pub.png)
-
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE.txt).
