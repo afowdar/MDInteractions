@@ -3,6 +3,7 @@ HIV-1 envelope: https://drive.google.com/file/d/1kk59B8CGFd6713m7s_VSFU6PrqYZ_xO
 Reverse transcriptase and integrase complex: https://drive.google.com/file/d/16_cR0dtMDmU2GIiXZVKrToxTpSh_hYrX/view?usp=sharing
 
 # Specify the SLURM directives in the script
+# Runtime feedback is only available through standard output and error streams during execution and is otherwise not provided.
 
 # add the modules
 module purge
