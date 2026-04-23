@@ -1,6 +1,7 @@
 # The last 10 ns (frame 8000-9000) of the trajectory, due to storage limitations, has been split and is available for download via Google Drive at the following URL: 
 HIV-1 envelope: https://drive.google.com/file/d/1kk59B8CGFd6713m7s_VSFU6PrqYZ_xOL/view?usp=drive_link
 Reverse transcriptase and integrase complex: https://drive.google.com/file/d/16_cR0dtMDmU2GIiXZVKrToxTpSh_hYrX/view?usp=sharing
+Reverse transcriptase and efavirenz complex (protein-ligand analysis): https://drive.google.com/file/d/1_E_CSz-uO_Z0aN6SL_-64WWCgglIbJrQ/view?usp=drive_link
 
 # Specify the SLURM directives in the script
 # Runtime feedback is only available through standard output and error streams during execution and is otherwise not provided.
