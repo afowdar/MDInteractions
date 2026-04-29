@@ -241,7 +241,7 @@ mean_distance \
 - By default, the output file is saved in the same directory as the gro_file, unless an alternative location or file path is specified via the --output_file command-line flag or the output_file="<path>" keyword argument.
 
 ## Protein ligand interactions
-
+```bash
 # Hydrogen bonding in protein (HBD) – ligand (HBA) interactions 
 protein_interactions  --gro_file "md.gro"   --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 1  --end_frame 1000  --group1_ID 21  --group2_ID 22  --group1_atom_name 'ND1, NE2, NH1, NH2, OG, OG1, N, OH, NE1, NZ, NE, ND2'  --group2_atom_name 'F1, F2, F3, O1, O2'  --cutoff 3  --give_res_name=True  --give_atom_name=True 
 
@@ -253,6 +253,7 @@ protein_interactions  --gro_file "md.gro"   --xtc_file "md.xtc"  --ndx_file "ind
 
 # Hydrophobic protein–ligand interactions
 Filtering of hydrophobic residues using hydrophobic interactions.py
+```
 
 ## License
 
