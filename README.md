@@ -240,10 +240,23 @@ mean_distance \
 - The `residue_specific_atoms` parameter should be provided as a **Python list of tuples** (e.g., `[("GLY", "CA"), ("ALA", "CB")]`) when using the Python API, and as a **JSON-formatted string** (e.g., `'[["GLY", "CA"], ["ALA", "CB"]]'`) when using the command-line interface.
 - By default, the output file is saved in the same directory as the gro_file, unless an alternative location or file path is specified via the --output_file command-line flag or the output_file="<path>" keyword argument.
 
+## Protein ligand interactions
+
+# Hydrogen bonding in protein (HBD) – ligand (HBA) interactions 
+protein_interactions  --gro_file "md.gro"   --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 1  --end_frame 1000  --group1_ID 21  --group2_ID 22  --group1_atom_name 'ND1, NE2, NH1, NH2, OG, OG1, N, OH, NE1, NZ, NE, ND2'  --group2_atom_name 'F1, F2, F3, O1, O2'  --cutoff 3  --give_res_name=True  --give_atom_name=True 
+
+# Hydrogen bonding in protein (HBA) – ligand (HBD) interactions 
+protein_interactions  --gro_file "md.gro"   --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 1  --end_frame 1000  --group1_ID 21  --group2_ID 22  --group1_atom_name 'OD1, OE1, OE2, O, OG, OG1, OH, NE1, OD2'  --group2_atom_name N  --cutoff 3   --give_res_name=True  --give_atom_name=True 
+
+# Disulfide bonding in protein–ligand interactions
+protein_interactions  --gro_file "md.gro"   --xtc_file "md.xtc"  --ndx_file "index.ndx"  --start_frame 1  --end_frame 1000  --group1_ID 21  --group2_ID 22  --group1_atom_name S  --group2_atom_name 'SD, SG'  --cutoff 5  --give_res_name=True  --give_atom_name=True
+
+# Hydrophobic protein–ligand interactions
+Filtering of hydrophobic residues using hydrophobic interactions.py
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE.txt).
-
 
 ## Citation
 
